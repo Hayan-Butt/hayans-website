@@ -627,10 +627,6 @@ img {
     transform: scaleX(1);
 }
 
-.skill-card-wide {
-    grid-column: span 2;
-}
-
 .skill-header {
     display: flex;
     align-items: center;
@@ -696,80 +692,14 @@ img {
     line-height: 1.7;
 }
 
-/* ========================================
-   WEBSITE SECTION
-   ======================================== */
-.website {
-    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-tertiary));
-}
-
-.website-intro {
-    margin-bottom: 50px;
-    max-width: 750px;
-}
-
-.website-lead {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    line-height: 1.9;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.feature-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 28px;
-    transition: var(--transition-medium);
-}
-
-.feature-card:hover {
-    background: var(--bg-card-hover);
-    border-color: rgba(0, 255, 136, 0.15);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
-}
-
-.feature-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--neon-green-dim);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    color: var(--neon-green);
-    transition: var(--transition-medium);
-}
-
-.feature-card:hover .feature-icon {
-    background: var(--neon-green);
-    color: var(--bg-primary);
-    box-shadow: var(--shadow-glow-green);
-}
-
-.feature-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-.feature-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-}
-
-.feature-text {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
+.skill-note {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.6;
 }
 
 /* ========================================
@@ -1077,14 +1007,6 @@ img {
         grid-template-columns: 1fr;
     }
     
-    .skill-card-wide {
-        grid-column: span 1;
-    }
-    
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .focus-areas {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1139,10 +1061,6 @@ img {
         padding: 24px;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .focus-areas {
         grid-template-columns: 1fr;
     }
@@ -1163,7 +1081,6 @@ img {
     
     .terminal-body,
     .skill-card,
-    .feature-card,
     .focus-card {
         padding: 20px;
     }
