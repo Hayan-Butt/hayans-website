@@ -3,304 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hayan Butt - Computer Science & Cyber Security Student. Personal website showcasing my learning journey in technology, networking, systems administration, and cyber security.">
-    <meta name="keywords" content="Hayan Butt, Computer Science, Cyber Security, Networking, Linux, Student Portfolio">
+    <title>Hayan Butt</title>
+    <meta name="description" content="Hayan Butt — Computer Science &amp; Cyber Security student. Open to IT internships and always eager to learn.">
     <meta name="author" content="Hayan Butt">
-    <title>Hayan Butt | Computer Science & Cyber Security Student</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#01030a">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hayan Butt">
+    <meta property="og:description" content="Computer Science &amp; Cyber Security student. Open to IT internships and always eager to learn.">
+    <meta property="og:url" content="https://hayan-butt.github.io/hayans-website/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<base target="_blank">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <!-- Animated Background -->
-    <div class="bg-effects">
-        <canvas id="particleCanvas" class="particle-canvas"></canvas>
-        <div class="grid-overlay"></div>
-        <div class="scanline"></div>
-        <div class="vignette"></div>
+<body class="page-home" data-page="home">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Startup sequence (plays once per visit) -->
+    <div class="boot" id="boot" aria-hidden="true">
+        <div class="boot-light"></div>
+        <div class="boot-cubes" id="bootCubes"></div>
+        <div class="boot-text">
+            <span class="boot-name">HAYAN BUTT</span>
+            <span class="boot-sub">PORTFOLIO</span>
+        </div>
+        <span class="boot-skip">CLICK TO SKIP</span>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-text">hayan_butt</span>
-                <span class="logo-cursor">>_</span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+    <canvas class="bg-canvas" id="bg" aria-hidden="true"></canvas>
+    <div class="fog" aria-hidden="true"></div>
+    <div class="crt" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <a href="index.html" class="brand"><span class="brand-orb"></span>HAYAN BUTT</a>
+        <nav class="tabs" aria-label="Main">
+            <a href="index.html" class="tab active" aria-current="page">Home</a>
+            <a href="about.html" class="tab">About</a>
+            <a href="projects.html" class="tab">Projects</a>
+            <a href="contact.html" class="tab">Contact</a>
+        </nav>
+        <div class="top-right">
+            <button class="sound-btn" id="soundBtn" aria-pressed="false" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+                <span class="sound-label">Sound off</span>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#about" class="nav-link"><span class="nav-hash">#</span>about</a></li>
-                <li><a href="#skills" class="nav-link"><span class="nav-hash">#</span>skills</a></li>
-                <li><a href="#learning" class="nav-link"><span class="nav-hash">#</span>learning</a></li>
-                <li><a href="#contact" class="nav-link"><span class="nav-hash">#</span>contact</a></li>
-            </ul>
+            <span class="clock" id="clock">--:--</span>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge fade-in-up">
-                    <span class="badge-pulse"></span>
-                    <span class="badge-text">Computer Science & Cyber Security Student</span>
-                </div>
-                <h1 class="hero-title fade-in-up" data-delay="100">
-                    <span class="title-greeting">Hi, I'm</span>
-                    <span class="title-name typewriter">Hayan Butt</span>
-                </h1>
-                <p class="hero-subtitle fade-in-up" data-delay="200">
-                    This website is my personal space on the web. I built it myself to represent who I am, what I'm currently learning, and my interests across computer science, IT, and cyber security. It also reflects how I approach building modern, clean, and well-structured websites.
-                </p>
-                <div class="hero-buttons fade-in-up" data-delay="300">
-                    <a href="https://www.linkedin.com/in/hayan-butt-582226296/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/Hayan-Butt" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-hint">
-            <div class="scroll-line"></div>
-            <span class="scroll-text">scroll</span>
-        </div>
-    </section>
+    <main class="screen" id="main">
+        <section>
+            <p class="eyebrow rise" style="--d:0">Welcome</p>
+            <h1 class="home-title chrome rise" style="--d:1">Hayan<br>Butt</h1>
+            <p class="home-role rise" style="--d:2">Computer Science &amp; Cyber Security Student</p>
+            <p class="home-intro rise" style="--d:3">I like taking things apart to see how they work — computers, networks and code. This is where I share what I've built and what I'm learning.</p>
+            <p class="home-note rise" style="--d:4"><span class="orb"></span>I'm open to IT internships and I'm very open to learning.</p>
+        </section>
 
-    <!-- About Me Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section-header slide-in-left">
-                <span class="section-tag">01 // about.me</span>
-                <h2 class="section-title">Who I Am</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-main slide-in-left" data-delay="100">
-                    <div class="terminal-box">
-                        <div class="terminal-header">
-                            <span class="terminal-dot red"></span>
-                            <span class="terminal-dot yellow"></span>
-                            <span class="terminal-dot green"></span>
-                            <span class="terminal-title">about.txt</span>
-                        </div>
-                        <div class="terminal-body">
-                            <p class="about-paragraph">
-                                I'm a <span class="text-accent">Computer Science & Cyber Security student</span> building my foundation through both academic study and hands-on projects. I created this website myself as a practical project to apply what I've been learning.
-                            </p>
-                            <p class="about-paragraph">
-                                I'm actively learning <span class="text-highlight">networking concepts</span> and using <span class="text-highlight">Wireshark</span> to analyse network traffic and understand how protocols work at the packet level.
-                            </p>
-                            <p class="about-paragraph">
-                                I've been learning <span class="text-highlight">Linux (Ubuntu)</span> and put that knowledge into practice by building a <span class="text-accent">home server</span> from an old machine. I used it to host a <span class="text-accent">Minecraft server</span> for friends, which taught me real-world server administration: port forwarding, SSH remote management, service configuration, and keeping a system running 24/7.
-                            </p>
-                            <p class="about-paragraph">
-                                I also enjoy <span class="text-accent">troubleshooting laptops</span> for friends and family, fixing hardware issues and diagnosing software problems. That hands-on work keeps me learning about how systems actually function under the hood.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <nav class="main-menu" data-menu aria-label="Main menu">
+            <p class="menu-label rise" style="--d:2">SELECT</p>
+            <a href="about.html" class="menu-item is-selected rise" style="--d:3">
+                <span class="mi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+                <span><strong>About Me</strong><small>Who I am and what I'm into</small></span>
+                <span class="mi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="projects.html" class="menu-item rise" style="--d:4">
+                <span class="mi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></span>
+                <span><strong>Projects</strong><small>Things I've built</small></span>
+                <span class="mi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="contact.html" class="menu-item rise" style="--d:5">
+                <span class="mi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg></span>
+                <span><strong>Contact</strong><small>Say hello</small></span>
+                <span class="mi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="https://github.com/Hayan-Butt" target="_blank" rel="noopener noreferrer" class="menu-item rise" style="--d:6">
+                <span class="mi-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>
+                <span><strong>GitHub</strong><small>See all my code</small></span>
+                <span class="mi-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+            </a>
+        </nav>
+    </main>
 
-    <!-- Skills Section -->
-    <section class="skills section" id="skills">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-tag">02 // skills.json</span>
-                <h2 class="section-title">Technical Interests</h2>
-                <p class="section-subtitle">Areas I'm actively exploring and building experience in</p>
-            </div>
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skill-card fade-in-up" data-delay="100">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="skill-title">Programming Languages</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item"><span class="skill-bullet">›</span> HTML5</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> CSS</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> JavaScript</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> C</div>
-                        <div class="skill-item learning"><span class="skill-bullet">~</span> C++ (actively learning)</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> Java</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> Python</div>
-                        <div class="skill-item learning"><span class="skill-bullet">~</span> Assembly language (beginner)</div>
-                    </div>
-                    <p class="skill-note">Web development skills (HTML/CSS/JS) used to build this site and other projects.</p>
-                </div>
-
-                <!-- IT & Systems -->
-                <div class="skill-card fade-in-up" data-delay="200">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                            </svg>
-                        </div>
-                        <h3 class="skill-title">IT & Systems</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item"><span class="skill-bullet">›</span> Wireshark proficiency (mid-level)</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> Linux & Ubuntu server administration</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> Arduino & ESP32 testing</div>
-                        <div class="skill-item"><span class="skill-bullet">›</span> Computer hardware & troubleshooting</div>
-                    </div>
-                    <p class="skill-note">Some OpenClaw experience.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Learning & Growth Section -->
-    <section class="learning section" id="learning">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-tag">03 // learning.log</span>
-                <h2 class="section-title">Learning & Growth</h2>
-            </div>
-            <div class="learning-content">
-                <div class="learning-intro fade-in-up" data-delay="100">
-                    <p class="learning-lead">
-                        These are the specific areas I'm focusing on right now. Each one represents a real project, tool, or skill I'm actively working with, not just theory.
-                    </p>
-                </div>
-                <div class="focus-areas">
-                    <div class="focus-card fade-in-up" data-delay="150">
-                        <div class="focus-number">01</div>
-                        <div class="focus-content">
-                            <h3>Server Administration & Homelab Setup</h3>
-                            <p>Running an Ubuntu home server 24/7, managing services, configuring SSH access, and hosting a live Minecraft server for friends.</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-in-up" data-delay="200">
-                        <div class="focus-number">02</div>
-                        <div class="focus-content">
-                            <h3>Network Traffic Analysis</h3>
-                            <p>Using Wireshark to capture and inspect packets, understand TCP/IP behaviour, and diagnose network issues in real time.</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-in-up" data-delay="250">
-                        <div class="focus-number">03</div>
-                        <div class="focus-content">
-                            <h3>Low-Level Programming</h3>
-                            <p>Learning C and Assembly language fundamentals to understand how software interacts directly with hardware and memory.</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-in-up" data-delay="300">
-                        <div class="focus-number">04</div>
-                        <div class="focus-content">
-                            <h3>Hardware Repair & Troubleshooting</h3>
-                            <p>Diagnosing and fixing laptop hardware and software faults for friends and family, learning by doing.</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-in-up" data-delay="350">
-                        <div class="focus-number">05</div>
-                        <div class="focus-content">
-                            <h3>Cybersecurity Fundamentals</h3>
-                            <p>Studying common threat types, basic defence strategies, and how to think about security from first principles.</p>
-                        </div>
-                    </div>
-                    <div class="focus-card fade-in-up" data-delay="400">
-                        <div class="focus-number">06</div>
-                        <div class="focus-content">
-                            <h3>Automation with Python & Bash</h3>
-                            <p>Writing scripts to automate repetitive tasks on my server and local machines, saving time and reducing errors.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="learning-note fade-in-up" data-delay="450">
-                    <p>This website will continue evolving as I learn more and build new things.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Internship Section -->
-    <section class="internship section" id="internship">
-        <div class="container">
-            <div class="internship-content fade-in-up">
-                <span class="internship-icon">&#9670;</span>
-                <p class="internship-text">I'm open to IT-related internships and learning opportunities.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-tag">04 // contact.connect</span>
-                <h2 class="section-title">Let's Connect</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-buttons fade-in-up" data-delay="100">
-                    <a href="https://www.linkedin.com/in/hayan-butt-582226296/" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <div class="contact-btn-inner">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                            <span class="contact-label">LinkedIn</span>
-                        </div>
-                        <span class="contact-arrow">&#8594;</span>
-                    </a>
-                    <a href="https://github.com/Hayan-Butt" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <div class="contact-btn-inner">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            <span class="contact-label">GitHub</span>
-                        </div>
-                        <span class="contact-arrow">&#8594;</span>
-                    </a>
-                </div>
-                <div class="contact-email fade-in-up" data-delay="150">
-                    <span class="email-label">Email:</span>
-                    <span class="email-address">hayanbutt90@gmail.com</span>
-                </div>
-                <div class="contact-note fade-in-up" data-delay="200">
-                    <p>GitHub projects may not be fully updated yet. I have ideas planned and more work will be added over time.</p>
-                    <p class="contact-cta">Feel free to connect or reach out.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-divider">
-                    <span class="divider-line"></span>
-                    <span class="divider-icon">&#9670;</span>
-                    <span class="divider-line"></span>
-                </div>
-                <p class="footer-text">Designed and built by <span class="footer-name">Hayan Butt</span></p>
-            </div>
-        </div>
+    <footer class="hintbar">
+        <span class="credit">© <span class="year">2026</span> Hayan Butt</span>
+        <span><kbd>↑</kbd><kbd>↓</kbd> Select</span>
+        <span><kbd>Enter</kbd> Open</span>
     </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="fade" id="fade" aria-hidden="true"></div>
 
     <script src="js/main.js"></script>
 </body>

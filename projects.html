@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Hayan Butt</title>
+    <meta name="description" content="Projects by Hayan Butt — a home security lab, an encrypted file transfer app, a chess game, a home server and more.">
+    <meta name="author" content="Hayan Butt">
+    <meta name="theme-color" content="#01030a">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-projects" data-page="projects">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas class="bg-canvas" id="bg" aria-hidden="true"></canvas>
+    <div class="fog" aria-hidden="true"></div>
+    <div class="crt" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <a href="index.html" class="brand"><span class="brand-orb"></span>HAYAN BUTT</a>
+        <nav class="tabs" aria-label="Main">
+            <a href="index.html" class="tab">Home</a>
+            <a href="about.html" class="tab">About</a>
+            <a href="projects.html" class="tab active" aria-current="page">Projects</a>
+            <a href="contact.html" class="tab">Contact</a>
+        </nav>
+        <div class="top-right">
+            <button class="sound-btn" id="soundBtn" aria-pressed="false" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+                <span class="sound-label">Sound off</span>
+            </button>
+            <span class="clock" id="clock">--:--</span>
+        </div>
+    </header>
+
+    <main class="screen" id="main">
+        <div class="page-head">
+            <p class="eyebrow rise" style="--d:0">Projects</p>
+            <h1 class="page-title chrome rise" style="--d:1">Things I've built</h1>
+            <p class="page-sub rise" style="--d:2">Pick a project to see what it is, how I made it, and where to find it.</p>
+        </div>
+
+        <div class="mc">
+            <div class="panel rise" style="--d:3; padding:16px">
+                <div class="mc-grid" id="mcGrid" role="listbox" aria-label="Projects"></div>
+            </div>
+            <article class="panel mc-detail rise" style="--d:4" id="mcDetail" aria-live="polite"></article>
+        </div>
+
+        <div class="panel mc-footer rise" style="--d:5">
+            <p>More on the way — I'm always working on something new.</p>
+            <div class="capacity"><span id="capText">6 PROJECTS</span><span class="capacity-bar"><span id="capBar"></span></span></div>
+        </div>
+
+        <noscript>
+            <ul style="margin-top:24px;line-height:2">
+                <li><a href="https://github.com/Hayan-Butt/wazuh-siem-homelab">Home Security Lab (Wazuh)</a></li>
+                <li><a href="https://github.com/Hayan-Butt/Encrypted-File-Transfer-cpp">Encrypted File Transfer</a></li>
+                <li><a href="https://github.com/Hayan-Butt/Chess-Game-using-Phyton">Chess Game</a></li>
+                <li><a href="https://github.com/Hayan-Butt/arch-hyprland-dotfiles">Arch Linux Setup</a></li>
+                <li><a href="https://github.com/Hayan-Butt/hayans-website">This Website</a></li>
+            </ul>
+        </noscript>
+    </main>
+
+    <footer class="hintbar">
+        <span class="credit">© <span class="year">2026</span> Hayan Butt</span>
+        <span><kbd>←</kbd><kbd>→</kbd> Browse</span>
+        <span><kbd>Esc</kbd> Back to menu</span>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="fade" id="fade" aria-hidden="true"></div>
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

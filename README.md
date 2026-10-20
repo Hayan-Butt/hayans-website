@@ -1,26 +1,44 @@
-# Hayan Butt's Personal Website
+# Hayan Butt — Personal Website
 
-This is the personal website of **Hayan Butt**, a Computer Science & Cyber Security student.  
-This website showcases my skills, what I'm learning, and my interest in web development, IT, and other tech fields.
+Personal website of **Hayan Butt**, a Computer Science & Cyber Security student.
+I'm open to IT internships and I'm very open to learning.
 
-## Features
-- Dark hacker/cyber-tech aesthetic with neon accents
-- Fully responsive, mobile-first design
-- Includes smooth scroll, animations, and interactive elements
+**Live:** https://hayan-butt.github.io/hayans-website/
 
-## Hosted on GitHub Pages
-You can view my website at:  
-https://hayan-butt.github.io/hayans-website/
+## Design
+Inspired by early-2000s console menus: glowing blue towers in the background, glossy glass panels,
+chrome lettering, a startup animation, spinning "memory card" style project icons and optional menu sounds.
 
-## Technologies Used
-- HTML, CSS, JavaScript
-- Responsive Design
-- Smooth Scroll Animations
+## Pages
+| File | What it is |
+|------|------------|
+| `index.html` | Startup animation + main menu (use ↑ ↓ and Enter) |
+| `about.html` | My story, the tools I use, and my journey as "save slots" |
+| `projects.html` | Project browser — pick a project to see its details (← → to browse) |
+| `contact.html` | Email, LinkedIn and GitHub |
+| `404.html` | Custom "page not found" screen |
 
-## GitHub Repo
-This repository contains all the source code for my personal website.
+## Editing projects
+All project info lives in `js/projects.js`. Add a new object to the list and it shows up automatically.
 
-Feel free to connect with me:
+## Tech
+Plain HTML, CSS and JavaScript — no frameworks and no build step, so it works on GitHub Pages as-is.
+
+```
+css/style.css     all styles
+js/main.js        background, startup, menus, sounds, page transitions
+js/projects.js    project data
+favicon.svg       site icon
+```
+
+## Run locally
+Open `index.html` in a browser, or:
+
+```bash
+python -m http.server 8000
+```
+
+## Contact
 - [LinkedIn](https://www.linkedin.com/in/hayan-butt-582226296/)
 - [GitHub](https://github.com/Hayan-Butt)
 - Email: hayanbutt90@gmail.com
